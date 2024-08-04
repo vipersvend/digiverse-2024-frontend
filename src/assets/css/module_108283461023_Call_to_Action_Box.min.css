@@ -1,0 +1,149 @@
+.cta-box .container {
+    margin: 0 auto;
+    max-width: var(--max-width);
+    width: 90%;
+  }
+  .cta-box__cta-position--bottom,
+  .cta-box__cta-position--bottom_full {
+    display: block;
+  }
+  .cta-box__cta-position--bottom .theme-ctas,
+  .cta-box__cta-position--bottom .theme-form-wrapper,
+  .cta-box__cta-position--bottom .theme-rich-text__main,
+  .cta-box__cta-position--bottom_full .theme-ctas,
+  .cta-box__cta-position--bottom_full .theme-form-wrapper,
+  .cta-box__cta-position--bottom_full .theme-rich-text__main {
+    margin-left: 0;
+    width: 100%;
+  }
+  .cta-box__cta-position--bottom .theme-ctas,
+  .cta-box__cta-position--bottom .theme-form-wrapper,
+  .cta-box__cta-position--bottom_full .theme-ctas,
+  .cta-box__cta-position--bottom_full .theme-form-wrapper {
+    margin-top: 1.5rem;
+  }
+  .cta-box__cta-position--bottom_full .theme-ctas .button,
+  .cta-box__cta-position--bottom_full .theme-form-wrapper .hs-form {
+    width: 100%;
+  }
+  .cta-box__cta-position--left,
+  .cta-box__cta-position--right {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+    max-width: var(--max-width);
+    width: var(--max-width);
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    .cta-box__cta-position--left,
+    .cta-box__cta-position--right {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .cta-box__cta-position--left .theme-rich-text__main,
+  .cta-box__cta-position--right .theme-rich-text__main {
+    max-width: 700px;
+  }
+  @media (min-width: 768px) {
+    .cta-box__cta-position--left .theme-ctas,
+    .cta-box__cta-position--left .theme-form-wrapper,
+    .cta-box__cta-position--right .theme-ctas,
+    .cta-box__cta-position--right .theme-form-wrapper {
+      margin-top: 0;
+    }
+  }
+  .cta-box__cta-position--left .theme-ctas,
+  .cta-box__cta-position--right .theme-ctas {
+    flex-shrink: 0;
+  }
+  @media (min-width: 768px) {
+    .cta-box__cta-position--left .theme-rich-text__main {
+      order: 2;
+      padding-left: 1rem;
+    }
+    .cta-box__cta-position--left .theme-ctas,
+    .cta-box__cta-position--left .theme-form-wrapper {
+      margin-right: var(--gutter);
+      order: 1;
+    }
+    .cta-box__cta-position--right .theme-rich-text__main {
+      padding-right: 1rem;
+    }
+    .cta-box__cta-position--right .theme-ctas,
+    .cta-box__cta-position--right .theme-form-wrapper {
+      justify-content: flex-end;
+      margin-left: var(--gutter);
+    }
+  }
+  .cta-box .theme-rich-text .h1,
+  .cta-box .theme-rich-text .h2,
+  .cta-box .theme-rich-text h1,
+  .cta-box .theme-rich-text h2 {
+    -webkit-text-decoration: var(--highlight-decoration);
+    text-decoration: var(--highlight-decoration);
+    -webkit-text-decoration-color: var(--highlight-color, transparent);
+    text-decoration-color: var(--highlight-color, transparent);
+    -webkit-text-decoration-skip-ink: none;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: 0.7em;
+    text-underline-offset: -0.45em;
+  }
+  .cta-box .countdown-timer {
+    --divider: currentColor;
+    position: relative;
+    text-align: center;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    z-index: 0;
+  }
+  .cta-box .countdown-timer:before {
+    background-color: var(--highlight-color, transparent);
+    content: "";
+    height: 55%;
+    left: 0;
+    position: absolute;
+    top: 45%;
+    width: 100%;
+  }
+  .cta-box .countdown-timer .h1 {
+    font-size: var(--timer-number-size);
+    text-decoration: none;
+  }
+  @media not screen and (min-width: 768px) {
+    .cta-box .countdown-timer .h1 {
+      font-size: var(--timer-number-mobile-size);
+    }
+  }
+  .cta-box .countdown-timer__unit {
+    padding: 1rem 2rem;
+  }
+  .cta-box .countdown-timer__unit:before {
+    opacity: 0.5;
+  }
+  .cta-box .text-center .countdown-timer {
+    margin: auto;
+  }
+  .cta-box .text-right .countdown-timer {
+    margin-left: auto;
+  }
+  @media not screen and (min-width: 768px) {
+    .cta-box .text-mobile--center .countdown-timer {
+      margin-inline: auto;
+    }
+    .cta-box .text-mobile--right .countdown-timer {
+      margin-left: auto;
+      margin-right: 0;
+    }
+    .cta-box .text-mobile--left .countdown-timer {
+      margin-left: 0;
+      margin-right: auto;
+    }
+    .cta-box .theme-ctas {
+      margin-top: 1.5rem;
+    }
+  }
+  
