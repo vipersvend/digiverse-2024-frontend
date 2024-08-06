@@ -1,0 +1,16 @@
+.leaderboard-table {
+    width: 100%;
+    text-align: center;
+}
+
+.rank-column {
+    width: 10%;
+}
+
+.leaderboard-column {
+    font: var(--h6-font)
+}
+
+.leadeboard-cells {
+    font: var(--subheadline-font)
+}

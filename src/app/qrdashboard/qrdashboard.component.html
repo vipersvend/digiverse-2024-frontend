@@ -1,4 +1,5 @@
 <app-header></app-header>
+<app-stats></app-stats>
 <div class="row-fluid-wrapper row-depth-1 row-number-2 main_content-row-1-padding dnd-section main_content-row-1-force-full-width-section">
     <div class="row-fluid ">
       <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
@@ -10,19 +11,20 @@
                 <fieldset class="form-columns-1">
                     <div class="hs_test_select_field hs-test_select_field hs-fieldtype-select field hs-form-field hs-input-focused">
                       <div class="theme-ctas ">
-                          <a class="button button--primary"><img src="img/camera-icon.svg">Enable Camera</a>
+                        <button class="button button--primary" [disabled]="action.isLoading" (click)="handle(action, action.isStart ? 'stop' : 'start')">
+                            <img [src]="action.isStart ? 'img/no-camera-icon.svg' : 'img/camera-icon.svg' " width="30px"/>
+                            <!-- <img src="img/camera-icon.svg"> -->
+                             {{action.isStart ? 'Disable' : 'Enable'}}
+                            Camera
+                        </button>
                       </div>
-                      <label id="label-test_select_field-5725ddc0-7b45-45dd-8d75-d6ca2a6ddf31_8603" class="" placeholder="Enter your Select Field" for="test_select_field-5725ddc0-7b45-45dd-8d75-d6ca2a6ddf31_8603">
+                      <label *ngIf="action.isStart" id="label-test_select_field-5725ddc0-7b45-45dd-8d75-d6ca2a6ddf31_8603" class="" placeholder="Enter your Select Field" for="test_select_field-5725ddc0-7b45-45dd-8d75-d6ca2a6ddf31_8603">
                         <span>Select Camera</span>
                       </label>
-                      <legend class="hs-field-desc" style="display: none;"></legend>
-                      <div class="input">
-                        <select id="test_select_field-5725ddc0-7b45-45dd-8d75-d6ca2a6ddf31_8603" class="hs-input is-placeholder" name="test_select_field">
-                          <option disabled="" value="">Please Select</option>
-                          <option value="Lorem Ipsum">Lorem Ipsum</option>
-                          <option value="Dolor Sit Amet">Dolor Sit Amet</option>
-                          <option value="Sed Diam Nonumy">Sed Diam Nonumy</option>
-                          <option value="Tempor invidunt">Tempor invidunt</option>
+                      <div *ngIf="action.isStart" class="input">
+                        <select #select1 (change)="action.playDevice(select1.value)" class="hs-input is-placeholder" name="test_select_field">
+                           <option [value]="null" selected>Select device</option>
+                           <option *ngFor="let c of action.devices.value; let i = index" [value]="c.deviceId" [selected]="i == action.deviceIndexActive">{{c.label}}</option>
                         </select>
                       </div>
                     </div>
@@ -31,7 +33,7 @@
               <div class="theme-rich-text widget-span span6 text--left lists--image">
                 <div class="theme-rich-text__main">
                   <p class="eyebrow">
-                    <span class="eyebrow__part">Booth Attendance</span>
+                    <span class="eyebrow__part">QR Attendance Dashboard</span>
                   </p>
                   <h2 class="theme-rich-text__heading"> Scan your VISA </h2>
                   <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.</p> -->
@@ -40,7 +42,7 @@
                     <li>Make Sure there is enough lighting</li>
                     <li>Make sure you are close enough to the camera</li>
                     <li>Show your VISA QR Code</li>
-                    <li>Wait until your attendance is Marked</li>
+                    <li>Wait until you hear the beep sound, and done!</li>
                   </ul>
                 </div>
                 <div class="theme-ctas">
@@ -55,38 +57,3 @@
     <!--end row-->
   </div>
   <!--end row-wrapper -->
-<div class="container">
-    <!-- devices -->
-    <div class="row">
-      <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 my-1">
-        <select #select1 (change)="action.playDevice(select1.value)" class="form-select form-select-md">
-          <option [value]="null" selected>Select device</option>
-          <option *ngFor="let c of action.devices.value; let i = index" [value]="c.deviceId" [selected]="i == action.deviceIndexActive">{{c.label}}</option>
-        </select>
-      </div>
-  
-      <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 my-1">
-        <select #select2 (change)="action.decode = select2.value" class="form-select form-select-md">
-          <option value="utf-8" [selected]="action.decode == 'utf-8'">UTF-8</option>
-          <option value="iso-8859-15" [selected]="action.decode == 'iso-8859-15'">ISO-8859-15</option>
-          <option value="windows-1252" [selected]="action.decode == 'windows-1252'">Windows-1252</option>
-          <option value="macintosh" [selected]="action.decode == 'macintosh'">Macintosh</option>
-        </select>
-      </div>
-    </div>
-  
-    <!-- ngx-scanner-qrcode -->
-    
-    <!-- data  -->
-    <!-- <p class="data">{{ (action.data | async | json) }}</p> -->
-  
-    <!-- loading -->
-    <p *ngIf="action.isLoading">⌛ Loading...</p>
-  
-    <!-- start/stop -->
-    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading" (click)="handle(action, action.isStart ? 'stop' : 'start')">
-      <img [src]="action.isStart ? 'https://id1945.github.io/images/svg/camera-off.svg' : 'https://id1945.github.io/images/svg/camera-on.svg'" width="30px"/>
-    </button>
-
-
-  </div>

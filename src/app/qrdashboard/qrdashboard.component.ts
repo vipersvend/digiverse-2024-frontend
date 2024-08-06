@@ -2,10 +2,12 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxScannerQrcodeModule, LOAD_WASM, ScannerQRCodeResult, NgxScannerQrcodeComponent, ScannerQRCodeConfig, ScannerQRCodeSelectedFiles, NgxScannerQrcodeService } from 'ngx-scanner-qrcode';
 import { HeaderComponent } from '../header/header.component'
+import { StatsComponent } from '../stats/stats.component'
+
 @Component({
   selector: 'app-qrdashboard',
   standalone: true,
-  imports: [NgxScannerQrcodeModule, CommonModule, HeaderComponent],
+  imports: [NgxScannerQrcodeModule, CommonModule, HeaderComponent, StatsComponent],
   templateUrl: './qrdashboard.component.html',
   styleUrl: './qrdashboard.component.css'
 })
